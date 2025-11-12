@@ -1,63 +1,74 @@
-/* ... (Seções 1 a 8 do aparencia.css permanecem inalteradas) ... */
-
-/* 9. ESTILOS DE FORMULÁRIO (Para Login, Cadastro e Agendamento) */
+:root {
+    /* Novas Cores Baseadas no Modelo (Rosa Suave e Neutros) */
+    --cor-primaria: #FFB3C1; /* Rosa Pastel (Destaque principal) */
+    --cor-secundaria: #E3E9F3; /* Fundo Suave para botões/inputs */
+    --cor-acento: #4A4E69; /* Cinza Escuro para texto importante */
+    
+    /* Variáveis do Tema Claro (Padrão) */
+    --cor-fundo-principal: #F8F8F8; /* Branco Suave */
+    --cor-fundo-secundario: #FFFFFF; /* Fundo de Container/Card */
+    --cor-fundo-cabecalho: #FFFFFF;
+    --cor-texto-principal: #222222; /* Preto/Cinza Escuro */
+    --cor-texto-secundario: #6C757D; /* Cinza para textos menores */
+    --cor-detalhe-principal: #FFB3C1; 
+    --cor-detalhe-secundario: #DDDDDD; /* Linhas de separação */
+    --cor-sombra: rgba(0, 0, 0, 0.08); /* Sombra mais sutil */
+    --cor-sucesso: #28A745;
+    --cor-erro: #DC3545;
+    
+    /* Outras Variáveis */
+    --borda-raio-padrao: 15px; /* Mais arredondado que o padrão 8px */
+    --peso-fonte-bold: 600;
+}body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo-principal);
+    color: var(--cor-texto-principal);
+    /* Mantém a transição para o tema escuro */
+    transition: background-color 0.3s, color 0.3s; 
+}
 
 .container {
     max-width: 450px;
     margin: 50px auto;
-    padding: 30px;
-    background-color: var(--cor-fundo-cabecalho);
-    border: 1px solid var(--cor-detalhe-secundario);
-    border-radius: var(--borda-raio-padrao);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px; /* Aumentar o padding para mais espaço interno */
+    background-color: var(--cor-fundo-secundario);
+    /* Remove a borda sólida e depende mais da sombra sutil */
+    border: none; 
+    border-radius: var(--borda-raio-padrao); /* Usa o novo raio de 15px */
+    box-shadow: 0 10px 25px var(--cor-sombra); /* Sombra mais pronunciada e suave */
 }
 
 .container h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: var(--cor-texto-principal);
-}
-
-form label {
-    display: block;
-    margin-bottom: 8px;
-    margin-top: 15px;
+    font-weight: 300; /* Títulos mais leves */
+    font-size: 2em;
+}/* Botão Principal */
+.botao-padrao {
+    padding: 12px 25px; /* Um pouco maior */
+    border: none;
+    cursor: pointer;
     font-weight: var(--peso-fonte-bold);
+    background-color: var(--cor-primaria);
+    color: white;
+    border-radius: 50px; /* Totalmente arredondado como no modelo */
 }
 
+.botao-padrao:hover {
+    background-color: #F894A8; /* Um rosa um pouco mais escuro no hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 179, 193, 0.5); /* Sombra colorida suave */
+}
+
+/* Inputs de Formulário */
 form input[type="text"],
 form input[type="email"],
 form input[type="password"],
+form input[type="date"],
 form select {
+    /* Mantém a largura e padding */
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 15px;
     border: 1px solid var(--cor-detalhe-secundario);
-    border-radius: 4px;
-    box-sizing: border-box; /* Garante que o padding não aumente a largura */
-    background-color: var(--cor-fundo-principal);
-    color: var(--cor-texto-principal);
-}
-
-form button[type="submit"] {
-    width: 100%;
-    margin-top: 20px;
-    font-size: 1.1em;
-    /* Reutiliza o estilo de botão já definido */
-    @extend .botao-padrao;
-}
-
-.mensagem-erro {
-    color: #FF6347; /* Tomate */
-    text-align: center;
-    margin-top: 10px;
-    font-weight: var(--peso-fonte-bold);
-}
-
-.mensagem-sucesso {
-    color: #3CB371; /* Verde Mar */
-    text-align: center;
-    margin-top: 10px;
-    font-weight: var(--peso-fonte-bold);
-
+    border-radius: 8px; /* Cantos arredondados, mas menos que o botão */
+    background-color: var(--cor-fundo-principal); /* Fundo sutilmente diferente do container */
 }
