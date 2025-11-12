@@ -30,7 +30,8 @@ def home():
 
 @app.route('/register')
 def register_page():
-    return render_template('register.html')
+    # 🟢 CORREÇÃO: Renderiza o arquivo 'index.html', que é a página de cadastro.
+    return render_template('index.html')
 
 @app.route('/appointment')
 def appointment_page():
@@ -79,3 +80,4 @@ if __name__ == '__main__':
     # Usaremos 'style.css' no lugar de 'aparencia.css' e 'seuarquivo.css'
     # Os templates devem ser renderizados. (Lembre-se de corrigir os links de CSS)
     app.run(debug=True)
+
