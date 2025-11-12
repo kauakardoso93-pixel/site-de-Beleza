@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Wave - Agendamento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="tema-claro">
+    <header class="cabecalho-principal">
+        <div class="logo"><a href="#">Beauty Wave</a></div>
+        <nav class="menu-navegacao">
+            <ul>
+                <li><a href="/client/dashboard">DASHBOARD</a></li>
+                <li><a href="#" class="ativo">AGENDAR</a></li>
+            </ul>
+        </nav>
+        <button id="toggle-theme" class="botao-padrao botao-arredondado">Modo Escuro</button>
+    </header>
+    <main class="container" style="max-width: 800px;">
+        <h2>Agendar um Serviço</h2>
+        <form id="appointmentForm">
+            <section class="selecao">
+                <h3>1. Escolha um Funcionário e Serviço</h3>
+                
+                <label for="servico">Serviço:</label>
+                <select id="servico" required>
+                    <option value="">Selecione um serviço</option>
+                    {% for key, value in servicos.items() %}
+                        <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="funcionario">Funcionário Preferido:</label>
+                <select id="funcionario" required>
+                    <option value="">Selecione um funcionário</option>
+                    {% for key, value in funcionarios.items() %}
+                        <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
+                </select>
+            </section>
+            
+            <section class="selecao-data">
+                <h3>2. Escolha a Data e Hora</h3>
+                <label for="data">Data Desejada:</label>
+                <input type="date" id="data" name="data" required>
+                
+                <label for="hora">Horário Disponível:</label>
+                <select id="hora" required>
+                    <option value="">Selecione um horário</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="14:00">14:00</option>
+                    <option value="16:00">16:00</option>
+                </select>
+            </section>
+
+            <div id="message" class="mensagem-erro"></div>
+            <button type="submit" class="botao-padrao botao-blob">Confirmar Agendamento</button>
+        </form>
+    </main>
+    <script src="appointment.js"></script> <script src="theme-toggle.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,63 @@
+/* ... (Seções 1 a 8 do aparencia.css permanecem inalteradas) ... */
+
+/* 9. ESTILOS DE FORMULÁRIO (Para Login, Cadastro e Agendamento) */
+
+.container {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: var(--cor-fundo-cabecalho);
+    border: 1px solid var(--cor-detalhe-secundario);
+    border-radius: var(--borda-raio-padrao);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--cor-texto-principal);
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 15px;
+    font-weight: var(--peso-fonte-bold);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--cor-detalhe-secundario);
+    border-radius: 4px;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura */
+    background-color: var(--cor-fundo-principal);
+    color: var(--cor-texto-principal);
+}
+
+form button[type="submit"] {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 1.1em;
+    /* Reutiliza o estilo de botão já definido */
+    @extend .botao-padrao;
+}
+
+.mensagem-erro {
+    color: #FF6347; /* Tomate */
+    text-align: center;
+    margin-top: 10px;
+    font-weight: var(--peso-fonte-bold);
+}
+
+.mensagem-sucesso {
+    color: #3CB371; /* Verde Mar */
+    text-align: center;
+    margin-top: 10px;
+    font-weight: var(--peso-fonte-bold);
+
+}

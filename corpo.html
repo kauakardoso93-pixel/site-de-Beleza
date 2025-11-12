@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Wave - Login</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body class="tema-claro">
+    <header class="cabecalho-principal">
+        <div class="logo"><a href="#">Beauty Wave</a></div>
+        <nav class="menu-navegacao">
+            <ul>
+                <li><a href="login.html" class="ativo">LOGIN</a></li>
+                <li><a href="register.html">CADASTRO</a></li>
+            </ul>
+        </nav>
+        <button id="toggle-theme" class="botao-padrao botao-arredondado">Modo Escuro</button>
+    </header>
+    <main class="container">
+        <h2>Entrar no Beauty Wave</h2>
+        <form id="loginForm">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+            <div id="message" class="mensagem-erro"></div>
+            <button type="submit" class="botao-padrao botao-arredondado">Acessar Conta</button>
+        </form>
+        <p style="text-align: center; margin-top: 15px;">Não tem uma conta? <a href="register.html">Cadastre-se aqui</a></p>
+    </main>
+    <script src="login.js"></script> <script src="theme-toggle.js"></script> </body>
+</html>
+
