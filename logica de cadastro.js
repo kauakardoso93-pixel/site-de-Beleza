@@ -1,46 +1,31 @@
-document.getElementById('registerForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salão de Beleza - Cadastro</title>
+    <link rel="stylesheet" href="Aparencia.css">
+</head>
+<body>
+    <header>
+        <h1>Cadastre-se</h1>
+    </header>
+    <main class="container">
+        <h2>Criar Nova Conta</h2>
+        <form id="registerForm"> <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" name="nome" required>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+            <label for="confirmar-senha">Confirmar Senha:</label>
+            <input type="password" id="confirmar-senha" name="confirmar-senha" required>
+            
+            <input type="hidden" name="role" value="client">
 
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const senha = document.getElementById('senha').value;
-    const confirmarSenha = document.getElementById('confirmar-senha').value;
-    const role = document.querySelector('input[name="role"]').value;
-    const messageDiv = document.getElementById('message');
-
-    if (senha !== confirmarSenha) {
-        messageDiv.textContent = 'As senhas não coincidem!';
-        messageDiv.className = 'mensagem-erro';
-        return;
-    }
-    
-    messageDiv.textContent = 'Cadastrando...';
-    messageDiv.className = 'mensagem-sucesso'; // Temporário
-
-    fetch('/api/register', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ nome, email, senha, role })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            messageDiv.textContent = data.message;
-            messageDiv.className = 'mensagem-sucesso';
-            // Redireciona para login após o cadastro
-            setTimeout(() => {
-                window.location.href = 'login.html';
-            }, 2000);
-        } else {
-            messageDiv.textContent = data.message;
-            messageDiv.className = 'mensagem-erro';
-        }
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-        messageDiv.textContent = 'Ocorreu um erro ao tentar cadastrar.';
-        messageDiv.className = 'mensagem-erro';
-    });
-});
+            <div id="message" class="mensagem-erro"></div> <button type="submit">Cadastrar</button>
+        </form>
+        <p>Já tem uma conta? <a href="/">Faça login</a></p> </main>
+    <script src="logica de cadastro.js"></script>
+    <script src="troca.js"></script> </body>
+</html>
